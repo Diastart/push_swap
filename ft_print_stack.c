@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_print_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 12:56:46 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/09 12:43:36 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/09 12:47:11 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char *av[])
+void	ft_print_stack(t_stack *stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_node	*current;
 
-	a = ft_parse(ac, av);
-	b = NULL;
-	ft_print_stack(a);
+	if (!stack)
+	{
+		printf("Stack is empty!\n");
+		return ;
+	}
+	if (!stack->top)
+	{
+		printf("Top is empty\n");
+		return ;
+	}
+	current = stack->top;
+	printf("Size: %d and chain is: ", stack->size);
+	while (current)
+	{
+		printf("%d -> ", current->value);
+		current = current->next;
+	}
+	printf("NULL\n");
 }

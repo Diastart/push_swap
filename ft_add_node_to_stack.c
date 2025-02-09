@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_add_node_to_stack.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 12:56:46 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/09 13:21:56 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/09 13:27:04 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char *av[])
+int	ft_add_node_to_stack(t_stack *stack, t_node *new, t_node **last)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = ft_parse(ac, av);
-	b = NULL;
-	ft_print_stack(a);
+	if (!new)
+		return (0);
+	if (!stack->top)
+		stack->top = new;
+	else
+		(*last)->next = new;
+	*last = new;
+	stack->size++;
+	return (1);
 }

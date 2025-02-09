@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_clean_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 12:56:46 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/09 12:05:36 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/09 12:20:16 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char *av[])
+t_stack	*ft_clean_stack(t_stack *stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_node	*current;
+	t_node	*next;
 
-	a = ft_parse(ac, av);
-	b = NULL;
-	ft_print_stack(a);
+	if (!stack)
+		return (NULL);
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free (stack);
+	return (NULL);
 }

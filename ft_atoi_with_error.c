@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_with_error.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/09 11:33:55 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/09 13:48:29 by Dias             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+static int	ft_handle_sign(char **str)
+{
+	int	sign;
+
+	sign = 1;
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	return (sign);
+}
+
+static t_number	ft_return_error(void)
+{
+	t_number	number;
+
+	number.value = 0;
+	number.error = 1;
+	return (number);
+}
+
+t_number	ft_atoi_with_error(char **str)
+{
+	t_number	number;
+	int			sign;
+
+	number.value = 0;
+	number.error = 0;
+	sign = ft_handle_sign(str);
+	while (**str != '\0' && **str != ' ')
+	{
+		if (!(**str >= '0' && **str <= '9'))
+			return (ft_return_error());
+		number.value = number.value * 10 + (**str - '0');
+		if ((sign == 1 && number.value > INT_MAX) || \
+		(sign == -1 && number.value > -(long)INT_MIN))
+			return (ft_return_error());
+		(*str)++;
+	}
+	number.value *= sign;
+	return (number);
+}

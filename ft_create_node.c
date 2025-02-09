@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_create_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 12:56:46 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/09 12:03:48 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/09 13:01:21 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char *av[])
+t_node	*ft_create_node(t_number number)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_node	*new;
 
-	a = ft_parse(ac, av);
-	b = NULL;
-	ft_print_stack(a);
+	if (number.error)
+		return (NULL);
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->value = (int)number.value;
+	new->next = NULL;
+	return (new);
 }
