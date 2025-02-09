@@ -6,7 +6,7 @@
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 12:56:46 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/09 19:49:28 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	main(int ac, char *av[])
 	t_stack	*a;
 	t_stack	*b;
 
-	a = ft_parse(ac, av);
+	if (ac < 2)
+		return (0);
+	a = ft_parse(av);
 	b = NULL;
 	ft_print_stack(a);
 }

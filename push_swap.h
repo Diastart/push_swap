@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:00:43 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 13:25:25 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/09 19:48:48 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ typedef struct s_number
 	int		error;
 }				t_number;
 
-t_stack		*ft_parse(int ac, char *av[]);
+t_stack		*ft_parse(char *av[]);
 int			ft_strchr(char *str, char c);
-t_stack		*ft_parse_shellv(char *str);
 t_number	ft_atoi_with_error(char **str);
 t_node		*ft_create_node(t_number number);
 t_stack		*ft_clean_stack(t_stack *stack);

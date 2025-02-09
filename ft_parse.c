@@ -5,20 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 11:04:58 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 12:57:36 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/09 19:12:33 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/09 19:47:53 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_parse(int ac, char *av[])
+t_stack	*ft_parse(char *av[])
 {
-	if (ac < 2)
-		return (NULL);
-	if (ac == 2 && ft_strchr(av[1], ' '))
-		return (ft_parse_shellv(av[1]));
-	return (NULL);
-}
+	t_stack		*stack;
+	t_node		*new;
+	t_node		*last;
+	char		*str;
 
-// return (ft_parse_args)
+	stack = ft_init_stack();
+	if (!stack)
+		return (NULL);
+	last = NULL;
+	while (*(++av))
+	{
+		str = *av;
+		while (*str)
+		{
+			while (*str == ' ')
+				str++;
+			if (*str)
+			{
+				new = ft_create_node(ft_atoi_with_error(&str));
+				if (!ft_add_node_to_stack(stack, new, &last))
+					return (ft_clean_stack(stack));
+			}
+		}
+	}
+	return (stack);
+}
