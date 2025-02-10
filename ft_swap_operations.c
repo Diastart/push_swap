@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
+/*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:25:12 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/10 12:00:48 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/10 13:03:20 by dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ static void	ft_swap(t_node *first, t_node *second)
 
 void	ft_sa(t_stack *a)
 {
-	t_node	*first;
-	t_node	*second;
-	int		temp;
-
 	if (!a || !a->top || !a->top->next)
 		return ;
 	ft_swap(a->top, a->top->next);
@@ -35,10 +31,6 @@ void	ft_sa(t_stack *a)
 
 void	ft_sb(t_stack *b)
 {
-	t_node	*first;
-	t_node	*second;
-	int		temp;
-
 	if (!b || !b->top || !b->top->next)
 		return ;
 	ft_swap(b->top, b->top->next);
@@ -47,11 +39,7 @@ void	ft_sb(t_stack *b)
 
 void	ft_ss(t_stack *a, t_stack *b)
 {
-	t_node	*first;
-	t_node	*second;
-	int		temp;
-
-	if ((!a || !a->top || !a->top->next) && (!b || !b->top || !b->top->next))
+	if (!a || !a->top || !a->top->next || !b || !b->top || !b->top->next)
 		return ;
 	ft_swap(a->top, a->top->next);
 	ft_swap(b->top, b->top->next);

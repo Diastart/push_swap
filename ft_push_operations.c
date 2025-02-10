@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
+/*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:01:33 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/10 12:13:49 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/10 12:53:32 by dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ static void	ft_push(t_stack *sender, t_stack *receiver)
 
 void	ft_pa(t_stack *a, t_stack *b)
 {
-	t_node	*temp;
-
 	if (!b || !b->top)
 		return ;
 	ft_push(b, a);
