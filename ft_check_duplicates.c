@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_check_duplicates.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/10 10:44:32 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/10 10:24:05 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/10 10:35:53 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char *av[])
+int	ft_check_duplicates(t_stack *stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_node	*current;
+	t_node	*check;
 
-	if (ac < 2)
+	if (!stack)
 		return (0);
-	a = ft_parse(av);
-	if (a != NULL && ft_check_duplicates(a))
+	current = stack->top;
+	while (current)
 	{
-		ft_clean_stack(a);
-		write (1, "Error\n", 6);
-		return (0);
+		check = current->next;
+		while (check)
+		{
+			if (current->value == check->value)
+				return (1);
+			check = check->next;
+		}
+		current = current->next;
 	}
-	b = NULL;
-	ft_print_stack(a);
+	return (0);
 }

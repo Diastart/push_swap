@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_stack.c                                   :+:      :+:    :+:   */
+/*   ft_push_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:43:36 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/10 10:12:38 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/10 12:01:33 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/10 12:13:49 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_stack(t_stack *stack)
+static void	ft_push(t_stack *sender, t_stack *receiver)
 {
-	t_node	*current;
+	t_node	*temp;
 
-	if (!stack)
+	temp = sender->top;
+	sender->top = sender->top->next;
+	sender->size--;
+	temp->next = receiver->top;
+	receiver->top = temp;
+	receiver->size++;
+}
+
+void	ft_pa(t_stack *a, t_stack *b)
+{
+	t_node	*temp;
+
+	if (!b || !b->top)
 		return ;
-	current = stack->top;
-	printf("Size: %d and chain is: ", stack->size);
-	while (current)
-	{
-		printf("%d -> ", current->value);
-		current = current->next;
-	}
-	printf("NULL\n");
+	ft_push(b, a);
+	write (1, "pa\n", 3);
+}
+
+void	ft_pb(t_stack *a, t_stack *b)
+{
+	if (!a || !a->top)
+		return ;
+	ft_push(a, b);
+	write (1, "pb\n", 3);
 }

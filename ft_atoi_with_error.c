@@ -6,7 +6,7 @@
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 11:33:55 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 20:04:49 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/10 10:41:03 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ static int	ft_handle_sign(char **str)
 	return (sign);
 }
 
-static t_number	ft_return_error(void)
+t_number	ft_return_error(void)
 {
 	t_number	number;
 
+	write (2, "Error\n", 6);
 	number.value = 0;
 	number.error = 1;
 	return (number);

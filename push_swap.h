@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:00:43 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/09 19:48:48 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/10 12:50:21 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,19 @@ t_stack		*ft_clean_stack(t_stack *stack);
 void		ft_print_stack(t_stack *stack);
 t_stack		*ft_init_stack(void);
 int			ft_add_node_to_stack(t_stack *stack, t_node *new, t_node **last);
+int			ft_check_duplicates(t_stack *stack);
+t_number	ft_return_error(void);
+void		ft_sa(t_stack *a);
+void		ft_sb(t_stack *b);
+void		ft_ss(t_stack *a, t_stack *b);
+void		ft_pa(t_stack *a, t_stack *b);
+void		ft_pb(t_stack *a, t_stack *b);
+void		ft_rotate(t_stack *stack, int is_reverse);
+void		ft_ra(t_stack *a);
+void		ft_rb(t_stack *b);
+void		ft_rr(t_stack *a, t_stack *b);
+void		ft_rra(t_stack *a);
+void		ft_rrb(t_stack *b);
+void		ft_rrr(t_stack *a, t_stack *b);
 
 #endif
