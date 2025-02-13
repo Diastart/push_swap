@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:00:43 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/10 12:50:21 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/12 18:31:13 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_node		*ft_create_node(t_number number);
 t_stack		*ft_clean_stack(t_stack *stack);
 void		ft_print_stack(t_stack *stack);
 t_stack		*ft_init_stack(void);
+int			ft_is_sorted(t_stack *stack);
 int			ft_add_node_to_stack(t_stack *stack, t_node *new, t_node **last);
 int			ft_check_duplicates(t_stack *stack);
 t_number	ft_return_error(void);
