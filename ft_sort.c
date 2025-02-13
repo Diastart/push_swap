@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_node_to_stack.c                             :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 13:21:56 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/13 15:20:23 by Dias             ###   ########.fr       */
+/*   Created: 2025/02/13 12:41:52 by Dias              #+#    #+#             */
+/*   Updated: 2025/02/13 13:14:51 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_add_node_to_stack(t_stack *stack, t_node *nw, t_node **last)
+void	ft_sort(t_stack *a, t_stack *b)
 {
-	if (!nw)
-		return (0);
-	if (!stack->top)
-		stack->top = nw;
+	if (a->size <= 5)
+		ft_sort_small(a, b);
 	else
-		(*last)->next = nw;
-	*last = nw;
-	stack->size++;
-	return (1);
+		ft_sort_large(a, b);
 }
