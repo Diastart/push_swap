@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:00:43 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/13 15:19:56 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/14 09:52:00 by dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_number
 }				t_number;
 
 t_stack			*ft_parse(char *av[]);
-int				ft_strchr(char *str, char c);
 t_number		ft_atoi_with_error(char **str);
 t_node			*ft_create_node(t_number number);
 t_stack			*ft_clean_stack(t_stack *stack);
@@ -66,5 +65,6 @@ unsigned int	ft_bits(unsigned int n);
 void			ft_sort(t_stack *a, t_stack *b);
 void			ft_sort_small(t_stack *a, t_stack *b);
 void			ft_sort_large(t_stack *a, t_stack *b);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
