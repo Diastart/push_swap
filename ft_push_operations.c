@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:01:33 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/10 12:53:32 by dias             ###   ########.fr       */
+/*   Updated: 2025/02/23 15:00:11 by dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,20 @@ static void	ft_push(t_stack *sender, t_stack *receiver)
 	receiver->size++;
 }
 
-void	ft_pa(t_stack *a, t_stack *b)
+void	ft_pa(t_stack *a, t_stack *b, int w)
 {
 	if (!b || !b->top)
 		return ;
 	ft_push(b, a);
-	write (1, "pa\n", 3);
+	if (w)
+		write (1, "pa\n", 3);
 }
 
-void	ft_pb(t_stack *a, t_stack *b)
+void	ft_pb(t_stack *a, t_stack *b, int w)
 {
 	if (!a || !a->top)
 		return ;
 	ft_push(a, b);
-	write (1, "pb\n", 3);
+	if (w)
+		write (1, "pb\n", 3);
 }

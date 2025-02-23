@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:07:28 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/14 10:09:55 by dias             ###   ########.fr       */
+/*   Updated: 2025/02/23 15:03:13 by dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 static int	ft_execute_instruction(char *line, t_stack *a, t_stack *b)
 {
 	if (!ft_strncmp(line, "sa\n", 3))
-		ft_sa(a);
+		ft_sa(a, 0);
 	else if (!ft_strncmp(line, "sb\n", 3))
-		ft_sb(b);
+		ft_sb(b, 0);
 	else if (!ft_strncmp(line, "ss\n", 3))
-		ft_ss(a, b);
+		ft_ss(a, b, 0);
 	else if (!ft_strncmp(line, "pa\n", 3))
-		ft_pa(a, b);
+		ft_pa(a, b, 0);
 	else if (!ft_strncmp(line, "pb\n", 3))
-		ft_pb(a, b);
+		ft_pb(a, b, 0);
 	else if (!ft_strncmp(line, "ra\n", 3))
-		ft_ra(a);
+		ft_ra(a, 0);
 	else if (!ft_strncmp(line, "rb\n", 3))
-		ft_rb(b);
+		ft_rb(b, 0);
 	else if (!ft_strncmp(line, "rr\n", 3))
-		ft_rr(a, b);
+		ft_rr(a, b, 0);
 	else if (!ft_strncmp(line, "rra\n", 4))
-		ft_rra(a);
+		ft_rra(a, 0);
 	else if (!ft_strncmp(line, "rrb\n", 4))
-		ft_rrb(b);
+		ft_rrb(b, 0);
 	else if (!ft_strncmp(line, "rrr\n", 4))
-		ft_rrr(a, b);
+		ft_rrr(a, b, 0);
 	else
 		return (0);
 	return (1);

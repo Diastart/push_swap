@@ -6,7 +6,7 @@
 /*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 11:04:42 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/13 17:23:41 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/23 14:28:24 by Dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ int	main(int ac, char *av[])
 	if (ac < 2)
 		return (0);
 	a = ft_parse(av);
-	if (!a || !a->top || ft_is_sorted(a))
+	if (!a || !a->top || ft_check_duplicates(a))
+	{
+		write (2, "Error\n", 6);
+		ft_clean_stack(a);
 		return (0);
-	if (ft_check_duplicates(a))
+	}
+	if (ft_is_sorted(a))
 	{
 		ft_clean_stack(a);
-		write(1, "Error\n", 6);
 		return (0);
 	}
 	b = ft_init_stack();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_large.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dias <dinursul@student.42.it>              +#+  +:+       +#+        */
+/*   By: dias <dias@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:12:31 by Dias              #+#    #+#             */
-/*   Updated: 2025/02/13 15:23:07 by Dias             ###   ########.fr       */
+/*   Updated: 2025/02/23 14:58:31 by dias             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	ft_process_a(t_stack *a, t_stack *b, unsigned int s, unsigned int q)
 	while (i < s)
 	{
 		if (((a->top->index >> q) & 1) == 0)
-			ft_ra(a);
+			ft_ra(a, 1);
 		else
 		{
-			ft_pb(a, b);
-			ft_rb(b);
+			ft_pb(a, b, 1);
+			ft_rb(b, 1);
 		}
 		i++;
 	}
@@ -38,11 +38,11 @@ static void	ft_process_b(t_stack *a, t_stack *b, unsigned int s, unsigned int q)
 	while (i < s)
 	{
 		if (((b->top->index >> q) & 1) == 1)
-			ft_rb(b);
+			ft_rb(b, 1);
 		else
 		{
-			ft_pa(a, b);
-			ft_ra(a);
+			ft_pa(a, b, 1);
+			ft_ra(a, 1);
 		}
 		i++;
 	}
@@ -68,7 +68,7 @@ void	ft_sort_large(t_stack *a, t_stack *b)
 	}
 	while (b->size > 0)
 	{
-		ft_pa(a, b);
-		ft_ra(a);
+		ft_pa(a, b, 1);
+		ft_ra(a, 1);
 	}
 }
